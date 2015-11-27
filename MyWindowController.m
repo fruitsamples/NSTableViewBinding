@@ -2,7 +2,7 @@
      File: MyWindowController.m 
  Abstract: The sample's main NSWindowController controlling its primary window.
   
-  Version: 1.0 
+  Version: 1.1 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
  Inc. ("Apple") in consideration of your agreement to the following 
@@ -42,7 +42,7 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE 
  POSSIBILITY OF SUCH DAMAGE. 
   
- Copyright (C) 2010 Apple Inc. All Rights Reserved. 
+ Copyright (C) 2012 Apple Inc. All Rights Reserved. 
   
  */
 
@@ -222,8 +222,8 @@
 	// handle user double-click
 	
 	// this is an example of inspecting each selected object in the selection
-	int index;
-	int numItems = [selectedObjects count];
+	NSUInteger index;
+	NSUInteger numItems = [selectedObjects count];
 	for (index = 0; index < numItems; index++)
 	{
 		NSDictionary *objectDict = [selectedObjects objectAtIndex:index];
@@ -241,11 +241,11 @@
 		myEditController = [[EditController alloc] init];
 	
 	// remember which selection index we are changing
-	unsigned int savedSelectionIndex = [myContentArray selectionIndex];
+	NSUInteger savedSelectionIndex = [myContentArray selectionIndex];
 
 	// get the current selected object and start the edit sheet
 	NSDictionary *editItem = [selectedObjects objectAtIndex:0];
-	NSMutableDictionary *newValues = [myEditController edit:editItem from:self];
+	NSDictionary *newValues = [myEditController edit:editItem from:self];
 	
 	if (![myEditController wasCancelled])
 	{
@@ -267,7 +267,7 @@
 		myEditController = [[EditController alloc] init];
 	
 	// ask our edit sheet for information on the record we want to add
-	NSMutableDictionary *newValues = [myEditController edit:nil from:self];
+	NSDictionary *newValues = [myEditController edit:nil from:self];
 	if (![myEditController wasCancelled])
 	{
 		[myContentArray addObject: newValues];

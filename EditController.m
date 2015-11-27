@@ -2,7 +2,7 @@
      File: EditController.m 
  Abstract: Controller object for the edit panel.
   
-  Version: 1.0 
+  Version: 1.1 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
  Inc. ("Apple") in consideration of your agreement to the following 
@@ -42,11 +42,12 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE 
  POSSIBILITY OF SUCH DAMAGE. 
   
- Copyright (C) 2010 Apple Inc. All Rights Reserved. 
+ Copyright (C) 2012 Apple Inc. All Rights Reserved. 
   
  */
 
 #import "EditController.h"
+#import "MyWindowController.h"
 
 @implementation EditController
 
@@ -70,7 +71,7 @@
 // -------------------------------------------------------------------------------
 //	edit:startingValues:from
 // -------------------------------------------------------------------------------
-- (NSMutableDictionary *)edit:(NSDictionary *)startingValues from:(MyWindowController *)sender
+- (NSDictionary *)edit:(NSDictionary *)startingValues from:(MyWindowController *)sender
 {
 	NSWindow *window = [self window];
 
@@ -96,7 +97,11 @@
 		[[editFields objectAtIndex:2] setStringValue:@""];
 	}
 	
-	[NSApp beginSheet:window modalForWindow:[sender window] modalDelegate:nil didEndSelector:nil contextInfo:nil];
+	[NSApp beginSheet:window
+       modalForWindow:[sender window]
+        modalDelegate:nil
+       didEndSelector:nil
+          contextInfo:nil];
 	[NSApp runModalForWindow:window];
 	// sheet is up here...
 

@@ -2,7 +2,7 @@
      File: EditController.h 
  Abstract: Controller object for the edit panel.
   
-  Version: 1.0 
+  Version: 1.1 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
  Inc. ("Apple") in consideration of your agreement to the following 
@@ -42,7 +42,7 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE 
  POSSIBILITY OF SUCH DAMAGE. 
   
- Copyright (C) 2010 Apple Inc. All Rights Reserved. 
+ Copyright (C) 2012 Apple Inc. All Rights Reserved. 
   
  */
 
@@ -52,13 +52,13 @@
 
 @interface EditController : NSWindowController
 {
-	BOOL					cancelled;
-	NSMutableDictionary		*savedFields;
+	BOOL cancelled;
+	NSDictionary *savedFields;
 	
-	IBOutlet NSForm			*editForm;
+	IBOutlet NSForm	 *editForm;
 }
 
-- (NSMutableDictionary *)edit:(NSDictionary *)startingValues from:(MyWindowController *)sender;
+- (NSDictionary *)edit:(NSDictionary *)startingValues from:(MyWindowController *)sender;
 - (BOOL)wasCancelled;
 
 - (IBAction)done:(id)sender;
